@@ -60,7 +60,14 @@ def get_unique_industries(path):
     list
         List of unique industries
     """
-    return []
+    jobs_dict_list = read(path)
+
+    jobs_industries = set()
+
+    for job in jobs_dict_list:
+        jobs_industries.add(job["industry"])
+
+    return list(jobs_industries)
 
 
 def filter_by_industry(jobs, industry):
