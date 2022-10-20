@@ -7,7 +7,6 @@ def test_brazilian_jobs():
         "salary": "2000",
         "type": "trainee",
     }
-
-    assert dict_translet_mock in read_brazilian_file(
-        "tests/mocks/brazilians_jobs.csv"
-    )
+    dict_translet = read_brazilian_file("tests/mocks/brazilians_jobs.csv")
+    print(dict_translet)
+    assert dict_translet_mock in dict_translet
