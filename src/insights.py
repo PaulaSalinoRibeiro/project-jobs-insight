@@ -19,10 +19,7 @@ def get_unique_job_types(path):
 
     jobs_dict_list = read(path)
 
-    jobs_types = set()
-
-    for job in jobs_dict_list:
-        jobs_types.add(job["job_type"])
+    jobs_types = {job["job_type"] for job in jobs_dict_list}
 
     return list(jobs_types)
 
@@ -65,10 +62,9 @@ def get_unique_industries(path):
     """
     jobs_dict_list = read(path)
 
-    jobs_industries = set()
-
-    for job in jobs_dict_list:
-        jobs_industries.add(job["industry"])
+    jobs_industries = {
+        job["industry"] for job in jobs_dict_list if len(job["industry"]) > 0
+    }
 
     return list(jobs_industries)
 
