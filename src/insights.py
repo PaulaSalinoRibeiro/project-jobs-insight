@@ -145,11 +145,11 @@ def get_min_salary(path):
 
 
 def matches_salary_range_aux(job, salary):
-    if int(job["max_salary"]) >= int(salary) >= int(job["min_salary"]):
-        return True
-
-    if int(job["max_salary"]) < int(job["min_salary"]):
+    if int(job["max_salary"]) <= int(job["min_salary"]):
         raise ValueError
+
+    elif int(job["max_salary"]) >= int(salary) >= int(job["min_salary"]):
+        return True
 
     return False
 
@@ -203,4 +203,14 @@ def filter_by_salary_range(jobs, salary):
     list
         Jobs whose salary range contains `salary`
     """
-    return []
+    list_jobs = []
+
+    for job in jobs:
+        try:
+            if matches_salary_range(job, salary):
+                list_jobs.append(job)
+
+        except ValueError:
+            ...
+
+    return list_jobs
