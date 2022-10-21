@@ -12,12 +12,12 @@ def sort_by_any_criteria(jobs, criteria):
         else:
             invalid_jobs.append(job)
 
-    if criteria in ['max_salary', 'min_salary']:
+    if criteria in ["max_salary", "min_salary"]:
         valid_jobs.sort(key=lambda job: int(job[criteria]))
     else:
         valid_jobs.sort(key=lambda job: job[criteria])
 
-    if criteria != 'min_salary':
+    if criteria != "min_salary":
         valid_jobs = valid_jobs[::-1]
 
     return valid_jobs + invalid_jobs
@@ -25,7 +25,7 @@ def sort_by_any_criteria(jobs, criteria):
 
 def sort_by_strings(jobs, criteria):
 
-    if criteria not in ['max_salary', 'min_salary', 'date_posted']:
+    if criteria not in ["max_salary", "min_salary", "date_posted"]:
         raise ValueError
 
     valid_jobs = []
@@ -46,7 +46,7 @@ def sort_by_strings(jobs, criteria):
 
 def sort_by_descending(jobs, criteria):
 
-    if criteria not in ['max_salary', 'min_salary', 'date_posted']:
+    if criteria not in ["max_salary", "min_salary", "date_posted"]:
         raise ValueError
 
     valid_jobs = []
@@ -67,4 +67,4 @@ def sort_by_descending(jobs, criteria):
 
 
 def no_sort(jobs, criteria):
-     return None
+    return None
